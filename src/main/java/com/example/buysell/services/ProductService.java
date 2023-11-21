@@ -10,6 +10,7 @@ import java.util.List;
 public class ProductService {
     private List<Product> products = new ArrayList<>();
     private static Long ID;
+
     {
         products.add(new Product(++ID,"PlayStation 4", "Just a description",
                 5000000, "Tashkent", "Sanjar"));
@@ -29,5 +30,15 @@ public class ProductService {
 
     public void deleteProduct(Long id) {
         products.removeIf(p -> p.getId().equals(id));
+    }
+
+    public Product getProductById(Long id) {
+        for(Product product : products) {
+            if(product.getId().equals(id)) {
+                return product;
+            }
+        }
+
+        return null;
     }
 }
