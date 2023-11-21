@@ -9,7 +9,7 @@
         <h4>Товары со всего Узбекистана</h4>
         <#list products as product>
             <div>
-                <p><b>${product.title}</b> ${product.price} | <a href="/product/${product.id}">Подробнее...</a></p>
+                <p><b>${product.title}</b> ${product.price} сум. | <a href="/product/${product.id}">Подробнее...</a></p>
             </div>
         </#list>
         <hr>
