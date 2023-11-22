@@ -7,11 +7,17 @@
     <body>
         <h1>BUYSELL</h1><hr>
         <h4>Товары со всего Узбекистана</h4>
+        <form action="/" method="get">
+            Поиск по названию объявления: <input type="text" name="title"><br>
+            <input type="submit" value="Поиск"/>
+        </form>
         <#list products as product>
             <div>
                 <p><b>${product.title}</b> ${product.price} сум. |
                     <a href="/product/${product.id}">Подробнее...</a></p>
             </div>
+            <#else>
+            <h3>Товаров нет</h3>
         </#list>
         <hr>
 
