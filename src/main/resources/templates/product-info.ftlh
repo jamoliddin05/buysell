@@ -11,7 +11,7 @@
     <b>Описание товара: </b>${product.description}<br>
     <b>Цена товара: </b>${product.price}<br>
     <b>Город: </b>${product.city}<br>
-    <b>Автор: </b>${product.description}<br>
+    <b>Автор: </b>${product.author}<br>
     <hr>
 
     <form action="/product/delete/${product.id}" method="POST">
