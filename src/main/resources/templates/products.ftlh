@@ -6,6 +6,16 @@
 
     <body>
         <h1>BUYSELL</h1><hr>
+        <#if user.email??>
+            <h3>Имя пользователя: <i>${user.name}</i></h3>
+            <form action="/logout" method="post">
+                <input type="hidden" name="_csrf" value="${_csrf.token}">
+                <input type="submit" value="Выйти"/>
+            </form>
+            <#else>
+                <a href="/login">Войти</a>
+        </#if>
+
         <h4>Товары со всего Узбекистана</h4>
         <form action="/" method="get">
             Поиск по названию объявления: <input type="text" name="title"><br>
@@ -19,19 +29,21 @@
             <#else>
             <h3>Товаров нет</h3>
         </#list>
-        <hr>
 
+    <#if user.email??>
+        <hr>
         <h3>Создать новый товар</h3>
         <form action="/product/create" method="POST" enctype="multipart/form-data">
             Название объявления: <input type="text" name="title"><br><br>
             Описание объявления: <input type="text" name="description"><br><br>
             Цена: <input type="number" name="price"><br><br>
             Город: <input type="text" name="city"><br><br>
-            Имя: <input type="text" name="author"><br><br>
             Первая Фотография: <input type="file" name="file1"><br><br>
             Вторая Фотография: <input type="file" name="file2"><br><br>
             Третья Фотография: <input type="file" name="file3"><br><br>
+            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
             <input type="submit" value="Добавить товар"/>
         </form>
+    </#if>
     </body>
 </html>
