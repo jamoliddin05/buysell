@@ -15,6 +15,7 @@
         <th>Роли</th>
         <th>Бан</th>
         <th>Редактирование</th>
+        <th>Удаление</th>
         <th>Подробная информация</th>
     </tr>
     <#list users as user>
@@ -28,6 +29,10 @@
                     <input type="submit" value="Бан">
                 </form></th>
             <th><a href="/admin/user/edit/${user.id}">Редактировать</a></th>
+            <th><form action="/admin/user/delete/${user.id}" method="post">
+                    <input type="hidden" name="_csrf" value="${_csrf.token}">
+                    <input type="submit" value="Удалить">
+                </form></th>
             <th><a href="/user/${user.id}">Подробная информация</a></th>
         </tr>
         <#else>
